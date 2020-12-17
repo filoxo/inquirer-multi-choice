@@ -166,7 +166,8 @@ class TablePrompt extends Base {
 
     const table = this._toArray(this.rows)
       .map((row, rowIndex) => {
-        const optionsToPrint = this.columns[rowIndex].choices
+        const selectedValue = this.values[rowIndex];
+        const options = this.columns[rowIndex].choices
           .map((choice, columnIndex) => {
             const isSelected =
               this.status !== 'answered' &&
@@ -174,7 +175,7 @@ class TablePrompt extends Base {
               this.cursorY === columnIndex;
 
             let value =
-              choice.value === this.values[rowIndex]
+              choice.value === selectedValue
                 ? chalk.cyan(choice.value)
                 : choice.value;
 
@@ -183,7 +184,8 @@ class TablePrompt extends Base {
             return value;
           })
           .join(' | ');
-        return `${this._clamp(row.name)}${optionsToPrint}`;
+        let rowText = `${this._clamp(row.name)}${options}`;
+        return selectedValue === undefined ? chalk.dim(rowText) : rowText;
       })
       .join('\n');
 
