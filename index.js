@@ -86,6 +86,11 @@ class TablePrompt extends Base {
     return currentValue;
   }
 
+  offsetYForXMovement() {
+    const maxCursorY = this.columns[this.cursorX].realLength;
+    if (maxCursorY <= this.cursorY) this.cursorY = maxCursorY - 1;
+  }
+
   onSpaceKey() {
     const value = this.columns[this.cursorX].get(this.cursorY).value;
     this.values[this.cursorX] = value;
@@ -95,13 +100,14 @@ class TablePrompt extends Base {
 
   onUpKey() {
     this.cursorX = this.cursorX > 0 ? this.cursorX - 1 : this.cursorX;
+    this.offsetYForXMovement();
     this.render();
   }
 
   onDownKey() {
     const length = this.rows.realLength;
-
     this.cursorX = this.cursorX < length - 1 ? this.cursorX + 1 : this.cursorX;
+    this.offsetYForXMovement();
     this.render();
   }
 
