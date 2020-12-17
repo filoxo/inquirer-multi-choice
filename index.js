@@ -1,10 +1,8 @@
 const chalk = require('chalk');
 const cliCursor = require('cli-cursor');
-const figures = require('figures');
 const Base = require('inquirer/lib/prompts/base');
 const Choices = require('inquirer/lib/objects/choices');
 const observe = require('inquirer/lib/utils/events');
-// const Table = require('cli-table');
 const { map, takeUntil } = require('rxjs/operators');
 
 // @ts-check
