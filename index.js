@@ -175,7 +175,7 @@ class TablePrompt extends Base {
             return value;
           })
           .join(' | ');
-        return `${row.name}\t\t${optionsToPrint}`;
+        return `${this._clamp(row.name)}${optionsToPrint}`;
       })
       .join('\n');
 
@@ -190,6 +190,10 @@ class TablePrompt extends Base {
 
   _toArray(a) {
     return a.filter(() => true);
+  }
+  _clamp(s, n = 25) {
+    if (s.trim().length > n) s = s.slice(0, n - 3) + '...';
+    return s.padEnd(n + 4);
   }
 }
 
