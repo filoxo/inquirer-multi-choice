@@ -86,10 +86,34 @@ class TablePrompt extends Base {
     return currentValue;
   }
 
+  onSpaceKey() {
+    const value = this.columns[this.cursorX].get(this.cursorY).value;
+    this.values[this.cursorX] = value;
+    this.spaceKeyPressed = true;
+    this.render();
+  }
+
+  onUpKey() {
+    this.cursorX = this.cursorX > 0 ? this.cursorX - 1 : this.cursorX;
+    this.render();
+  }
+
   onDownKey() {
     const length = this.rows.realLength;
 
     this.cursorX = this.cursorX < length - 1 ? this.cursorX + 1 : this.cursorX;
+    this.render();
+  }
+
+  onLeftKey() {
+    const length = this.columns[this.cursorX].realLength;
+    this.cursorY = this.cursorY > 0 ? this.cursorY - 1 : length - 1;
+    this.render();
+  }
+
+  onRightKey() {
+    const length = this.columns[this.cursorX].realLength;
+    this.cursorY = this.cursorY < length - 1 ? this.cursorY + 1 : 0;
     this.render();
   }
 
@@ -106,30 +130,6 @@ class TablePrompt extends Base {
 
   onError(state) {
     this.render(state.isValid);
-  }
-
-  onLeftKey() {
-    const length = this.columns[this.cursorX].realLength;
-    this.cursorY = this.cursorY > 0 ? this.cursorY - 1 : length - 1;
-    this.render();
-  }
-
-  onRightKey() {
-    const length = this.columns[this.cursorX].realLength;
-    this.cursorY = this.cursorY < length - 1 ? this.cursorY + 1 : 0;
-    this.render();
-  }
-
-  onSpaceKey() {
-    const value = this.columns[this.cursorX].get(this.cursorY).value;
-    this.values[this.cursorX] = value;
-    this.spaceKeyPressed = true;
-    this.render();
-  }
-
-  onUpKey() {
-    this.cursorX = this.cursorX > 0 ? this.cursorX - 1 : this.cursorX;
-    this.render();
   }
 
   paginate() {
