@@ -20,8 +20,8 @@ class TablePrompt extends Base {
   constructor(questions, rl, answers) {
     super(questions, rl, answers);
 
-    this.cursorX = 0;
     this.cursorY = 0;
+    this.cursorX = 0;
     this.rows = new Choices(this.opt.rows, []);
     // columns == row choices
     this.columns = this.opt.rows.map((row) => new Choices(row.choices, []));
@@ -152,8 +152,10 @@ class TablePrompt extends Base {
       message += `(Press ${chalk.cyan.bold(
         '<space>'
       )} to select, ${chalk.cyan.bold(
-        '<Up/Down>'
-      )} to move rows, ${chalk.cyan.bold('<Left/Right>')} to make a choice)`;
+        '<up/down>'
+      )} to move rows, ${chalk.cyan.bold(
+        '<left/right>'
+      )} to make a choice, ${chalk.cyan.bold('<enter>')} to finish)`;
     }
 
     const table = this._toArray(this.rows)
