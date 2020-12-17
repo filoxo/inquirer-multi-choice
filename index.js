@@ -26,7 +26,7 @@ class TablePrompt extends Base {
     // columns == row choices
     this.columns = this.opt.rows.map((row) => new Choices(row.choices, []));
     // values == "selected choices"
-    this.values = Array.from(this.columns).map(() => undefined);
+    this.values = this._toArray(this.rows).map((v) => v.default);
     this.pageSize = this.opt.pageSize || 10;
   }
 
