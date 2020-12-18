@@ -49,6 +49,7 @@ inquirer
         },
         {
           name: 'Log',
+          default: 'false',
           choices: ['true', 'false'],
         },
       ],
