@@ -61,7 +61,7 @@ inquirer
       {
         settings: {
           Enabled: 'on',
-          Color: 'red',
+          Color: '#00f',
           Log: 'true'
         }
       }
