@@ -12,7 +12,7 @@ npm install --save inquirer-multi-choice
 
 ## Usage
 
-After registering the prompt, set any question to have `type: "mutli-choice"` to make use of this prompt.
+After registering the prompt, set any question to have `type: "multi-choice"` to make use of this prompt.
 
 The result will be an array, containing the value for each row.
 
