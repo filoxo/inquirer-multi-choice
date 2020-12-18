@@ -47,6 +47,10 @@ inquirer
             },
           ],
         },
+        {
+          name: 'Log',
+          choices: ['true', 'false'],
+        },
       ],
     },
   ])
@@ -55,8 +59,9 @@ inquirer
     /*
       {
         settings: {
-          Enabled: 'on'
-          Color: 'red'
+          Enabled: 'on',
+          Color: 'red',
+          Log: 'true'
         }
       }
     */
