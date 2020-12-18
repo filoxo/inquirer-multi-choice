@@ -153,7 +153,7 @@ class TablePrompt extends Base {
         const selectedValue = this.values[rowIndex];
         const options = this.columns[rowIndex].choices
           .map((choice, columnIndex) => {
-            const isSelected =
+            const highlighted =
               this.status !== 'answered' &&
               this.cursorX === rowIndex &&
               this.cursorY === columnIndex;
@@ -163,7 +163,7 @@ class TablePrompt extends Base {
                 ? chalk.cyan(choice.name)
                 : choice.name;
 
-            if (isSelected) value = chalk.inverse(value);
+            if (highlighted) value = chalk.inverse(value);
 
             return value;
           })
