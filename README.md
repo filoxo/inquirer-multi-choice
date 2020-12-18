@@ -66,4 +66,3 @@ inquirer
 ### Options
 
 - `rows`: Array of objects. Follows the same format as Inquirer's `choices`
-- `pageSize`: Number of rows to display per page

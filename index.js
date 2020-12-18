@@ -25,7 +25,6 @@ class TablePrompt extends Base {
     this.columns = this.opt.rows.map((row) => new Choices(row.choices, []));
     // values == "selected choices"
     this.values = this._toArray(this.rows).map((v) => v.default);
-    this.pageSize = this.opt.pageSize || 10;
   }
 
   /**
@@ -134,18 +133,6 @@ class TablePrompt extends Base {
   onError(state) {
     this.render(state.isValid);
   }
-
-  // paginate() {
-  //   const middleOfPage = Math.floor(this.pageSize / 2);
-  //   const firstIndex = Math.max(0, this.cursorX - middleOfPage);
-  //   const lastIndex = Math.min(
-  //     firstIndex + this.pageSize - 1,
-  //     this.rows.realLength - 1
-  //   );
-  //   const lastPageOffset = this.pageSize - 1 - lastIndex + firstIndex;
-
-  //   return [Math.max(0, firstIndex - lastPageOffset), lastIndex];
-  // }
 
   render(error) {
     let message = this.getQuestion();
