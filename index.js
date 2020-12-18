@@ -181,7 +181,7 @@ class TablePrompt extends Base {
 
             return value;
           })
-          .join(' | ');
+          .join(' | '); // TODO: make configurable as option
         let rowText = `${this._clamp(row.name)}${options}`;
         return selectedValue === undefined ? chalk.dim(rowText) : rowText;
       })
@@ -199,6 +199,7 @@ class TablePrompt extends Base {
   _toArray(a) {
     return a.filter(() => true);
   }
+  // TODO: make configurable as option
   _clamp(s, n = 25) {
     if (s.trim().length > n) s = s.slice(0, n - 3) + '...';
     return s.padEnd(n + 4);
