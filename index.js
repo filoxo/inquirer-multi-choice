@@ -153,7 +153,7 @@ class TablePrompt extends Base {
     let bottomContent = '';
 
     if (!this.spaceKeyPressed) {
-      message += `(Press ${chalk.cyan.bold(
+      message += `\n(Press ${chalk.cyan.bold(
         '<space>'
       )} to select, ${chalk.cyan.bold(
         '<up/down>'
