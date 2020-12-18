@@ -75,13 +75,12 @@ class TablePrompt extends Base {
   }
 
   getCurrentValue() {
-    const currentValue = [];
-
-    this.rows.forEach((row, rowIndex) => {
-      currentValue.push(this.values[rowIndex]);
-    });
-
-    return currentValue;
+    return Object.fromEntries(
+      this._toArray(this.rows).map((row, index) => [
+        row.name,
+        this.values[index],
+      ])
+    );
   }
 
   offsetYForXMovement() {
