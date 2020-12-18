@@ -160,8 +160,8 @@ class TablePrompt extends Base {
 
             let value =
               choice.value === selectedValue
-                ? chalk.cyan(choice.value)
-                : choice.value;
+                ? chalk.cyan(choice.name)
+                : choice.name;
 
             if (isSelected) value = chalk.inverse(value);
 
