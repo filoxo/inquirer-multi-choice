@@ -139,13 +139,13 @@ class TablePrompt extends Base {
     let bottomContent = '';
 
     if (!this.spaceKeyPressed) {
-      message += `\n(Press ${chalk.cyan.bold(
-        '<space>'
-      )} to select, ${chalk.cyan.bold(
-        '<up/down>'
-      )} to move rows, ${chalk.cyan.bold(
-        '<left/right>'
-      )} to make a choice, ${chalk.cyan.bold('<enter>')} to finish)`;
+      bottomContent += chalk.dim(
+        `(Use ${chalk.cyan.bold('<up/down>')} to move rows, ${chalk.cyan.bold(
+          '<left/right>'
+        )} to move between options, ${chalk.cyan.bold(
+          '<space>'
+        )} to select, and ${chalk.cyan.bold('<enter>')} to finish)`
+      );
     }
 
     const table = this._toArray(this.rows)
