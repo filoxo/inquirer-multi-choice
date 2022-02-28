@@ -14,7 +14,7 @@ npm install --save inquirer-multi-choice
 
 After registering the prompt, set any question to have `type: "multi-choice"` to make use of this prompt.
 
-The result will be an array, containing the value for each row.
+The result will be a plain JS object with the question name as the key and the selected option as the value.
 
 ```js
 inquirer.registerPrompt('multi-choice', require('inquirer-multi-choice'));
